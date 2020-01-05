@@ -2,3 +2,7 @@
 README.md
 CMakeLists.txt
 sources/cmake-build-debug
+a.out
+a.out.dSYM
+*.o
+*.a
