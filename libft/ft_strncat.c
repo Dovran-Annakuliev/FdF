@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/06 19:47:43 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[j] != '\0' && j != n)
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

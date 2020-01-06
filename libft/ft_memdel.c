@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/09 14:10:56 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:12 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_memdel(void **ap)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

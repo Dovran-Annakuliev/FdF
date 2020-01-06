@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rfork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/03 16:18:56 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+size_t	ft_strlen(char const *str)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	size_t	len;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

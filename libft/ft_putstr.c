@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rfork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/08/05 10:53:31 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:12 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putstr(char const *s)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	int i;
+
+	if (s)
+	{
+		i = 0;
+		while (s[i] != '\0')
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
+	}
 }

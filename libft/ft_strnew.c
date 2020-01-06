@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/08 12:10:12 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:11:08 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strnew(size_t size)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	size_t	i;
+	char	*arr;
+
+	if ((size + 1) == 0)
+		return (NULL);
+	i = 0;
+	arr = (char*)malloc(sizeof(char) * (size + 1));
+	if (arr)
+	{
+		while (i <= size + 1)
+		{
+			arr[i] = '\0';
+			i++;
+		}
+		return (arr);
+	}
+	else
+		return (NULL);
 }

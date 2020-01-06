@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/09 17:44:54 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	int r;
+
+	r = 'a' - 'A';
+	if (c >= 'A' && c <= 'Z')
+		return (c + r);
+	return (c);
 }

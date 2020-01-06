@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rfork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/08/06 10:12:30 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/22 15:34:58 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strstr(const char *str, const char *to_find)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	if (*to_find)
+	{
+		while (*str)
+			if (!(ft_memcmp(str++, to_find, ft_strlen(to_find))))
+				return ((char*)(str - 1));
+		return (NULL);
+	}
+	return ((char*)str);
 }

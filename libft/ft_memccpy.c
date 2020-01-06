@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2019/09/09 14:46:16 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memccpy(void *dst, const void *src, int c,
+		size_t n)
 {
-	arr = read(argc, argv, 0, 0);
-	grafon();
-	return(0);
+	size_t i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char*)dst)[i] = ((char*)src)[i];
+		if (((char*)src)[i] == (char)c)
+			return (&dst[i + 1]);
+		i++;
+	}
+	return (NULL);
 }
