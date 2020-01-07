@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   grafon.c                                           :+:      :+:    :+:   */
+/*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 13:15:11 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
+/*   Updated: 2020/01/07 18:09:55 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void grafon()
+t_mlx	*start()
 {
-	void *mlx_ptr;
-	void *win_ptr;
+	t_mlx *data;
 
-	if (!(mlx_ptr = mlx_init()))
-//		ft_error(0);
-		exit(0);
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "grafon");
-	mlx_loop(mlx_ptr);
+	if (!(data = (t_mlx *)malloc(sizeof(t_mlx))))
+		suicide(ERR_MALLOC);
+	if (!(data->mlx_ptr = mlx_init()))
+		suicide(ERR_START_INIT);
+	if (!(data->win_ptr = mlx_new_window(data->mlx_ptr, 640, 480, "Cake is a lie")))
+		suicide(ERR_START_WIN);
+	return (data);
 }

@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   grafon.c                                           :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 13:15:11 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/06 13:18:18 by rfork            ###   ########.fr       */
+/*   Created: 2020/01/07 18:05:01 by rfork             #+#    #+#             */
+/*   Updated: 2020/01/07 18:05:43 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef FDF_ERRORS_H
+# define FDF_ERRORS_H
 
-void grafon()
-{
-	void *mlx_ptr;
-	void *win_ptr;
+# define ERR_START_INIT "starting initialization error"
+# define ERR_START_WIN "starting window creation error"
+# define ERR_MALLOC "memory allocation error"
 
-	if (!(mlx_ptr = mlx_init()))
-//		ft_error(0);
-		exit(0);
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "grafon");
-	mlx_loop(mlx_ptr);
-}
+#endif
