@@ -6,7 +6,7 @@
 #    By: rfork <rfork@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/05 17:09:20 by rfork             #+#    #+#              #
-#    Updated: 2020/01/07 17:42:32 by rfork            ###   ########.fr        #
+#    Updated: 2020/01/12 15:30:23 by rfork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,10 @@ $(NAME): $(OBJS) lib
 clean:
 		rm -f $(OBJS)
 		make -C libft clean
-		make -C sources/minilibx_macos clean
 
 fclean: clean
 		rm -f $(NAME)
 		make -C libft fclean
-		make -C sources/minilibx_macos fclean
+		make -C sources/minilibx_macos clean
 
 re: fclean all
