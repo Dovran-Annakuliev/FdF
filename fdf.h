@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/07 18:10:45 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/08 11:58:33 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "sources/minilibx_macos/mlx.h"
 # include "get_next_line.h"
 # include "errors.h"
+# include <math.h>
 
 typedef struct	s_mlx
 {
