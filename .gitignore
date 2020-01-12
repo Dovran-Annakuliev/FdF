@@ -7,3 +7,4 @@ a.out.dSYM
 *.o
 *.a
 cmake-build-debug
+fdf
