@@ -24,7 +24,7 @@ struct  s_col_name
 };
 
 //extern struct s_col_name mlx_col_name[];
-#include "mlx_rgb.c"
+#include "mlx_rgb.h"
 
 
 #define	RETURN	{ if (colors) free(colors); if (tab) free(tab); \
