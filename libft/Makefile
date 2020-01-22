@@ -73,7 +73,8 @@ SRCS = ft_atoi.c \
        ft_islower.c \
        ft_isspace.c \
        ft_iscntrl.c \
-       ft_isblank.c
+       ft_isblank.c \
+       get_next_line.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = libft.h
 

@@ -12,10 +12,15 @@
 
 #ifndef LIBFT_LIBFT_H
 # define LIBFT_LIBFT_H
+# define BUFF_SIZE 10000
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <limits.h>
 
 typedef struct		s_list
 {
@@ -149,5 +154,7 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 
 int					ft_isblank(int c);
+
+int					get_next_line(const int fd, char **line);
 
 #endif

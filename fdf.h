@@ -19,12 +19,11 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 # include "libft/libft.h"
 # include "sources/minilibx_macos/mlx.h"
-# include "get_next_line.h"
 # include "errors.h"
-# include <math.h>
 
 typedef struct	s_mlx
 {
