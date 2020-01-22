@@ -8,3 +8,7 @@ a.out.dSYM
 *.a
 cmake-build-debug
 fdf
+.DS_Store
+sources/.DS_Store
+sources/extra_sources/.DS_Store
+sources/fdf/.DS_Store
