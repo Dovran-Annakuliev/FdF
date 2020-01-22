@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:16:25 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/22 17:53:40 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 19:15:14 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,46 +28,52 @@ static int		ft_strlen_split(char const *s, char c)
 	return (len);
 }
 
-void	split(t_point *data, char *map)
+void	split(t_point *data, char *map, int i)
 {
-	int i;
+	int j;
 	char **arr;
 
-	i = -1;
+	j = -1;
 	arr = ft_strsplit(map, ' ');
-	while (arr[++i])
+	while (arr[++j])
 	{
-		data->x = ft_atoi(map);
-		data->y = ft_atoi(ft_strchr(map, ','));
-		data->clr = ft_atoi_base(ft_strchr(ft_strchr(map, ','), ','));
+		data->x = j;
+		data->y = i;
+		data->z = ft_atoi(map);
+		data->clr = ft_atoi_base(ft_strchr(map, ','));
 	}
 }
 
-char **ft_read(int argc, char **argv, int fd, int ret)
+char **read_map(int argc, char **argv, int fd, int ret)
 {
-	char **map;
+	char *line;
 	int heg;
 	int len;
 	t_point *data;
+	int i;
+	t_map *map;
 
-	map = (char**)malloc(sizeof(char*) * 1);
+//	line = (char*)malloc(sizeof(char) * 1);
 	if (argc != 2 || (((fd = open(argv[1], O_RDONLY)) < 0)))
 		ft_error(1);
-	while (get_next_line(fd, map[0]))
+	while (get_next_line(fd, &line))
 	{
 		if (!len)
-			len = ft_strlen_split(map[0], ' ');
-		if (len != ft_strlen_split(map[0], ' '))
+			len = ft_strlen_split(line[0], ' ');
+		if (len != ft_strlen_split(line[0], ' '))
 			ft_error(2);
-		free(map[0]);
+		free(line[0]);
 		heg++;
 	}
+	map->heg = heg;
+	map->len = len;
 	close(fd);
+	i = -1;
 	fd = open(argv[1], O_RDONLY);
-	while (get_next_line(fd, map[0]))
+	while (get_next_line(fd, line[0]))
 		{
-			split(data, map[0]);
-			free(map[0]);
+			split(data, line[0], ++i);
+			free(line[0]);
 		}
 	close(fd);
 }

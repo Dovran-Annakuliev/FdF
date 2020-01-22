@@ -62,7 +62,7 @@ void	dda(t_mlx *data)
 
 int		main(int argc, char **argv)
 {
-	ft_read(argc, argv, 0, 0);
+	read_map(argc, argv, 0, 0);
 
 }
 //{
