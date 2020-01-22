@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_LIBFT_H
 # define LIBFT_LIBFT_H
+# define BUFF_SIZE 10000
 
 # include <stdlib.h>
 # include <unistd.h>

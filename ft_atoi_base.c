@@ -1,13 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-
-int		ft_iswhitespace(char const c)
-{
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
-		|| c == '\r' || c == '\f')
-		return (1);
-	return (0);
-}
+#include "fdf.h"
 
 int	base(int c, int base)
 {
@@ -24,37 +15,18 @@ int	base(int c, int base)
 	return (-1);
 }
 
-int ft_atoi_base(const char *str, int str_base)
+int ft_atoi_base(const char *str)
 {
+	int str_base;
 	int nb = 0;
-	int negatif = 0;
-	int	i = 0;
-	while (ft_iswhitespace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			negatif = 1;
-		i++;
-	}
+	int	i = 2;
+
+	str_base = 16;
 	while (base(str[i], str_base) != -1)
 	{
 		nb = nb * str_base;
 		nb = nb + base(str[i], str_base);
 		i++;
 	}
-	if (negatif)
-		return (-nb);
 	return (nb);
-}
-
-int	main(int ac, char **av)
-{
-	int		nb;
-	if (ac >= 3)
-	{
-		nb = ft_atoi_base(av[1], atoi(av[2]));
-		printf("%d\n", nb);
-	}
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:16:25 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/22 16:09:07 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 17:53:40 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ static int		ft_strlen_split(char const *s, char c)
 	return (len);
 }
 
-static char *po4ti_atoi()
-{
-
-}
-
 void	split(t_point *data, char *map)
 {
 	int i;
@@ -44,7 +39,7 @@ void	split(t_point *data, char *map)
 	{
 		data->x = ft_atoi(map);
 		data->y = ft_atoi(ft_strchr(map, ','));
-		data->clr = ft_strchr(ft_strchr(map, ','), ',');
+		data->clr = ft_atoi_base(ft_strchr(ft_strchr(map, ','), ','));
 	}
 }
 

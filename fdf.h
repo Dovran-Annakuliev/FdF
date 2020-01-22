@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/22 14:16:56 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 17:52:43 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ int				main(int argc, char **argv);
 void			grafon();
 char			**ft_read(int argc, char **argv, int fd, int ret);
 void			ft_error(int err);
+int				ft_atoi_base(const char *str);
+void			split(t_point *data, char *map);
 
 #endif
