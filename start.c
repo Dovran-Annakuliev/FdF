@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/07 18:09:55 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 12:53:01 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_mlx	*start()
 		suicide(ERR_MALLOC);
 	if (!(data->mlx_ptr = mlx_init()))
 		suicide(ERR_START_INIT);
-	if (!(data->win_ptr = mlx_new_window(data->mlx_ptr, 640, 480, "Cake is a lie")))
+	if (!(data->win_ptr = mlx_new_window(data->mlx_ptr, 640, 480, "rule №34")))
 		suicide(ERR_START_WIN);
 	return (data);
 }

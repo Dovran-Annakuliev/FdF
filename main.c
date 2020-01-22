@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/12 14:33:17 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 13:26:44 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,18 @@ void	dda(t_mlx *data)
 	}
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-	t_mlx *data;
+	ft_read(argc, argv, 0, 0);
 
-	data = start();
-	mlx_key_hook(data->win_ptr, deal_key, data);
-	dda(data);
-
-	mlx_loop(data->mlx_ptr);
-	return (0);
 }
-
-//int main(void)//int argc, char **argv)
 //{
-////	arr = read(argc, argv, 0, 0);
-//	grafon();
-//	return(0);
+//	t_mlx *data;
+//
+//	data = start();
+//	mlx_key_hook(data->win_ptr, deal_key, data);
+//	dda(data);
+//
+//	mlx_loop(data->mlx_ptr);
+//	return (0);
 //}

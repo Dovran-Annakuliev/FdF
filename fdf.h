@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/08 11:58:33 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/22 14:16:56 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ typedef struct	s_point
 	int 		x;
 	int 		y;
 	int 		z;
+	int 		clr;
 }				t_point;
 
 t_mlx			*start();
 
 void			suicide(char *error_text);
-
-int main(void);
-void grafon();
+int				main(int argc, char **argv);
+void			grafon();
+char			**ft_read(int argc, char **argv, int fd, int ret);
+void			ft_error(int err);
 
 #endif
