@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.h                                           :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 18:05:01 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/25 11:12:40 by rfork            ###   ########.fr       */
+/*   Created: 2020/01/26 16:57:53 by rfork             #+#    #+#             */
+/*   Updated: 2020/01/26 16:57:53 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_ERRORS_H
-# define FDF_ERRORS_H
+#include "fdf.h"
 
-# define ERR_START_INIT "starting initialization error"
-# define ERR_START_WIN "starting window creation error"
-# define ERR_MALLOC "memory allocation error"
-
-#endif
+void    ft_error(int err)
+{
+	if (err == 1)
+	{
+		write(1, "usage: ./FdF target_file\n", 26);
+		exit(0);
+	}
+	else if (err == 2)
+	{
+		write(1, "invalid map\n", 12);
+		exit(0);
+	}
+	else
+	{
+		write(1, "error\n", 6);
+		exit(0);
+	}
+}

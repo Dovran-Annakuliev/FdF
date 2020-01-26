@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/25 11:12:22 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/26 16:56:15 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ int		deal_key(int key, t_mlx *data)
 	else if (key == 53)
 		exit(0);
 	return (0);
-}
-
-void	suicide(char *error_text)
-{
-	ft_putstr(error_text);
-	exit(0);
 }
 
 void	dda(t_mlx *data)
@@ -60,11 +54,11 @@ void	dda(t_mlx *data)
 	}
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	t_mlx *data;
 
-	data = start();
+	start(argc, argv, data);
 	mlx_key_hook(data->win_ptr, deal_key, data);
 	dda(data);
 
