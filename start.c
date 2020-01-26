@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/26 16:56:15 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/26 17:38:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 t_mlx	*start(int argc, char **argv, t_mlx *data)
 {
-	if (!(data->map = (t_map *)malloc(sizeof(t_map))))
-		ft_error(0);
 	if (!(data = (t_mlx *)malloc(sizeof(t_mlx))))
 		ft_error(0);
 	if (!(data->mlx_ptr = mlx_init()))

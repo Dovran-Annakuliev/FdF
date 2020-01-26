@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:16:25 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/26 18:08:25 by rfork            ###   ########.fr       */
+/*   Updated: 2020/01/26 18:15:54 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 		free(line);
 		data->heg++;
 	}
+	free(line);
 	data->arr = (t_point *)malloc(sizeof(t_point) * data->heg * data->len);
 	close(fd);
 	i = -1;
@@ -100,5 +101,6 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 			split(data, line, ++i);
 			free(line);
 		}
+	free(line);
 	close(fd);
 }
