@@ -45,6 +45,8 @@ int			get_next_line(const int fd, char **line)
 	if (!s_buf[fd])
 		if (!(s_buf[fd] = ft_strnew(0)))
 			return (-1);
+	if ((ft_strchr(s_buf[fd], '\n')))
+		return (ft_save(line, &s_buf[fd]));
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
@@ -55,8 +57,7 @@ int			get_next_line(const int fd, char **line)
 		if ((ft_strchr(s_buf[fd], '\n')))
 			return (ft_save(line, &s_buf[fd]));
 	}
-	if (s_buf[fd])
-		if (s_buf[fd][0])
-			return (ft_save(line, &s_buf[fd]));
+	if (s_buf[fd] && (s_buf[fd][0]))
+		return (ft_save(line, &s_buf[fd]));
 	return (0);
 }

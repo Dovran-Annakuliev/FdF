@@ -24,12 +24,17 @@
 # include "libft/libft.h"
 # include "sources/minilibx_macos/mlx.h"
 
+# define W 2560
+# define H 1600
+#define iW 2560
+#define iH 1600
+
 typedef struct	s_point
 {
 	int 		x;
 	int 		y;
 	int 		z;
-	int 		clr;
+	int 		color;
 }				t_point;
 
 typedef struct	s_map
@@ -47,7 +52,7 @@ typedef struct	s_mlx
 	t_point 	*arr;
 }				t_mlx;
 
-t_mlx			*start(int argc, char **argv, t_mlx *data);
+t_mlx			*start(int argc, char **argv);
 int				main(int argc, char **argv);
 void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			ft_error(int err);

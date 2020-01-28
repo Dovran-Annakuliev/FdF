@@ -56,21 +56,29 @@ static int		ft_strlen_split(char const *s, char c)
 	return (len);
 }
 
-static void	split(t_mlx *data, char *map, int i)
+static void	split(t_mlx *data, char *line, int i)
 {
 	int k;
 	int j;
 	char **array;
+	char *test;
 
 	j = -1;
-	k = 0;
-	array = ft_strsplit(map, ' ');
+	k = i * 10;
+//	printf("line = %s\n", line);
+	array = ft_strsplit(line, ' ');
+//	printf("array[2][2] = %s\n", array[2][2]);
 	while (array[++j])
 	{
-		((data->arr) + k)->x = j;
-		((data->arr) + k)->y = i;
-		((data->arr) + k)->z = ft_atoi(array[j]);
-		((data->arr) + k)->clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
+		printf("array = %s\nj = %d\n", array[j], j);
+		data->arr[k].x = j;
+		data->arr[k].y = i;
+		data->arr[k].z = ft_atoi(array[j]);
+		if (ft_strchr(array[j], ','))
+			data->arr[k].color = ft_atoi_base(ft_strchr(array[j], ',') + 1);
+		else
+			data->arr[k].color = 12500670;
+		printf("x = %d, y = %d, z = %d, color = %d\n", data->arr[k].x, data->arr[k].y, data->arr[k].z, data->arr[k].color); //!!!!!
 		k++;
 	}
 }
@@ -80,6 +88,8 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 	char *line;
 	int i;
 
+	data->heg = 0;
+	data->len = 0;
 	if (argc != 2 || (((fd = open(argv[1], O_RDONLY)) < 0)))
 		ft_error(1);
 	while (get_next_line(fd, &line))
@@ -88,19 +98,25 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 			data->len = ft_strlen_split(line, ' ');
 		if (data->len != ft_strlen_split(line, ' '))
 			ft_error(2);
-		free(line);
+		ft_strdel(&line);
 		data->heg++;
 	}
-	free(line);
+//	printf("heg = %d, len = %d\n", data->heg, data->len);
+//	printf("line = %s\n", line);
+	ft_strdel(&line);
 	data->arr = (t_point *)malloc(sizeof(t_point) * data->heg * data->len);
 	close(fd);
 	i = -1;
 	fd = open(argv[1], O_RDONLY);
 	while (get_next_line(fd, &line))
 		{
+//			printf("line = %s\n", line);
 			split(data, line, ++i);
-			free(line);
+			ft_strdel(&line);
+//			free(line);
 		}
-	free(line);
+	write(1, "wirte\n", 6);
+	ft_strdel(&line);
+//	free(line);
 	close(fd);
 }
