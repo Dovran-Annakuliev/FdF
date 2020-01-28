@@ -45,8 +45,8 @@ typedef struct	s_map
 
 typedef struct	s_image
 {
-	void		*mlx_img;
-	char		*mlx_addr;
+	void		*image;
+	char		*img_data;
 	int			bbp;
 	int			sz_l;
 	int 		end;
@@ -66,5 +66,6 @@ t_mlx			*start(int argc, char **argv);
 int				main(int argc, char **argv);
 void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			ft_error(int err);
+void			create_background(t_mlx *data);
 
 #endif

@@ -12,6 +12,15 @@
 
 #include "fdf.h"
 
+void	create_background(t_mlx *data)
+{
+	int i;
+
+	i = -1;
+	while (++i < (iW * iH))
+		data->img.img_data[i] = 0;
+}
+
 t_mlx	*start(int argc, char **argv)
 {
 	t_mlx *data;
@@ -22,11 +31,12 @@ t_mlx	*start(int argc, char **argv)
 		ft_error(0);
 	if (!(data->window = mlx_new_window(data->mlx, H, W, "rule №34")))
 		ft_error(0);
-	if (!(data->img.mlx_img = mlx_new_image(data->mlx, iW, iH)))
+	if (!(data->img.image = mlx_new_image(data->mlx, iW, iH)))
 		ft_error(0);
-	if (!(data->img.mlx_addr = mlx_get_data_addr(data->img.mlx_img, &data->img.bbp, &data->img.sz_l, &data->img.end)))
+	if (!(data->img.img_data = mlx_get_data_addr(data->img.image, &data->img.bbp, &data->img.sz_l, &data->img.end)))
 		ft_error(0);
-	printf("data_addr = %s\n", data->img.mlx_addr);
+	create_background(data);
+	printf("data_addr = %s\n", data->img.img_data);
 	read_map(argc, argv, 0, data);
 	return (data);
 }
