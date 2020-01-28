@@ -65,9 +65,7 @@ static void	split(t_mlx *data, char *line, int i)
 
 	j = -1;
 	k = i * 10;
-//	printf("line = %s\n", line);
 	array = ft_strsplit(line, ' ');
-//	printf("array[2][2] = %s\n", array[2][2]);
 	while (array[++j])
 	{
 		printf("array = %s\nj = %d\n", array[j], j);
@@ -101,8 +99,6 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 		ft_strdel(&line);
 		data->heg++;
 	}
-//	printf("heg = %d, len = %d\n", data->heg, data->len);
-//	printf("line = %s\n", line);
 	ft_strdel(&line);
 	data->arr = (t_point *)malloc(sizeof(t_point) * data->heg * data->len);
 	close(fd);
@@ -110,13 +106,10 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 	fd = open(argv[1], O_RDONLY);
 	while (get_next_line(fd, &line))
 		{
-//			printf("line = %s\n", line);
 			split(data, line, ++i);
 			ft_strdel(&line);
-//			free(line);
 		}
 	write(1, "wirte\n", 6);
 	ft_strdel(&line);
-//	free(line);
 	close(fd);
 }

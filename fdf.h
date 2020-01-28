@@ -45,11 +45,13 @@ typedef struct	s_map
 
 typedef struct	s_mlx
 {
-	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*mlx_ptr;
+	void		*mlx_image;
+	char		*mlx_data_addr;
+	t_point 	*arr;
 	int 		heg;
 	int 		len;
-	t_point 	*arr;
 }				t_mlx;
 
 t_mlx			*start(int argc, char **argv);
