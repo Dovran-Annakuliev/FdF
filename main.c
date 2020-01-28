@@ -15,9 +15,9 @@
 //int		deal_key(int key, t_mlx *data)
 //{
 //	if (key != 51 && key != 53)
-//		mlx_string_put(data->mlx_ptr, data->win_ptr, , 240, 16711680, ft_itoa(key));
+//		mlx_string_put(data->mlx, data->window, , 240, 16711680, ft_itoa(key));
 //	else if (key == 51)
-//		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+//		mlx_clear_window(data->mlx, data->window);
 //	else if (key == 53)
 //		exit(0);
 //	return (0);
@@ -48,7 +48,7 @@
 //	double Y = p1->y;
 //	for (int i = 0; i <= steps; i++)
 //	{
-//		mlx_pixel_put(data->mlx_ptr, data->win_ptr, (int)round(X), (int)round(Y), 16711680);
+//		mlx_pixel_put(data->mlx, data->window, (int)round(X), (int)round(Y), 16711680);
 //		X += Xinc;
 //		Y += Yinc;
 //	}
@@ -61,17 +61,17 @@ int		main(int argc, char **argv)
 
 	i = 0;
 	data = start(argc, argv);
-	printf("map = %d\n", (data->heg * data->len));
-	while (i < (data->heg * data->len))
+	printf("map = %d\n", (data->map.heg * data->map.len));
+	while (i < (data->map.heg * data->map.len))
 	{
 
-		printf("i = %d\nx = %d. y = %d, z = %d, color = %d\n", i, data->arr[i].x, data->arr[i].y, data->arr[i].z, data->arr[i].color);
+		printf("i = %d\nx = %d. y = %d, z = %d, clr = %d\n", i, data->arr[i].x, data->arr[i].y, data->arr[i].z, data->arr[i].clr);
 		i++;
 	}
-//	mlx_key_hook(data->win_ptr, deal_key, data);
+//	mlx_key_hook(data->window, deal_key, data);
 //	dda(data);
 //
-//	mlx_loop(data->mlx_ptr);
+//	mlx_loop(data->mlx);
 	return (0);
 }
 

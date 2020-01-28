@@ -26,15 +26,15 @@
 
 # define W 2560
 # define H 1600
-#define iW 2560
-#define iH 1600
+# define iW 2560
+# define iH 1600
 
 typedef struct	s_point
 {
 	int 		x;
 	int 		y;
 	int 		z;
-	int 		color;
+	int 		clr;
 }				t_point;
 
 typedef struct	s_map
@@ -43,15 +43,23 @@ typedef struct	s_map
 	int			len;
 }				t_map;
 
+typedef struct	s_image
+{
+	void		*mlx_img;
+	char		*mlx_addr;
+	int			bbp;
+	int			sz_l;
+	int 		end;
+}				t_image;
+
+
 typedef struct	s_mlx
 {
-	void		*win_ptr;
-	void		*mlx_ptr;
-	void		*mlx_image;
-	char		*mlx_data_addr;
+	void		*window;
+	void		*mlx;
 	t_point 	*arr;
-	int 		heg;
-	int 		len;
+	t_map 		map;
+	t_image		img;
 }				t_mlx;
 
 t_mlx			*start(int argc, char **argv);

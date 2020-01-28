@@ -61,7 +61,6 @@ static void	split(t_mlx *data, char *line, int i)
 	int k;
 	int j;
 	char **array;
-	char *test;
 
 	j = -1;
 	k = i * 10;
@@ -73,10 +72,10 @@ static void	split(t_mlx *data, char *line, int i)
 		data->arr[k].y = i;
 		data->arr[k].z = ft_atoi(array[j]);
 		if (ft_strchr(array[j], ','))
-			data->arr[k].color = ft_atoi_base(ft_strchr(array[j], ',') + 1);
+			data->arr[k].clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
 		else
-			data->arr[k].color = 12500670;
-		printf("x = %d, y = %d, z = %d, color = %d\n", data->arr[k].x, data->arr[k].y, data->arr[k].z, data->arr[k].color); //!!!!!
+			data->arr[k].clr = 12500670;
+		printf("x = %d, y = %d, z = %d, clr = %d\n", data->arr[k].x, data->arr[k].y, data->arr[k].z, data->arr[k].clr); //!!!!!
 		k++;
 	}
 }
@@ -86,21 +85,21 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 	char *line;
 	int i;
 
-	data->heg = 0;
-	data->len = 0;
+	data->map.heg = 0;
+	data->map.len = 0;
 	if (argc != 2 || (((fd = open(argv[1], O_RDONLY)) < 0)))
 		ft_error(1);
 	while (get_next_line(fd, &line))
 	{
-		if (!data->len)
-			data->len = ft_strlen_split(line, ' ');
-		if (data->len != ft_strlen_split(line, ' '))
+		if (!data->map.len)
+			data->map.len = ft_strlen_split(line, ' ');
+		if (data->map.len != ft_strlen_split(line, ' '))
 			ft_error(2);
 		ft_strdel(&line);
-		data->heg++;
+		data->map.heg++;
 	}
 	ft_strdel(&line);
-	data->arr = (t_point *)malloc(sizeof(t_point) * data->heg * data->len);
+	data->arr = (t_point *)malloc(sizeof(t_point) * data->map.heg * data->map.len);
 	close(fd);
 	i = -1;
 	fd = open(argv[1], O_RDONLY);
