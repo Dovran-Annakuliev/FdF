@@ -67,7 +67,7 @@ static void	split(t_mlx *data, char *line, int i)
 	array = ft_strsplit(line, ' ');
 	while (array[++j])
 	{
-		printf("array = %s\nj = %d\n", array[j], j);
+//		printf("array = %s\nj = %d\n", array[j], j);
 		data->arr[k].x = j;
 		data->arr[k].y = i;
 		data->arr[k].z = ft_atoi(array[j]);
@@ -75,7 +75,7 @@ static void	split(t_mlx *data, char *line, int i)
 			data->arr[k].clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
 		else
 			data->arr[k].clr = 12500670;
-		printf("x = %d, y = %d, z = %d, clr = %d\n", data->arr[k].x, data->arr[k].y, data->arr[k].z, data->arr[k].clr); //!!!!!
+//		printf("x = %d, y = %d, z = %d, clr = %d\n", data->arr[k].x, data->arr[k].y, data->arr[k].z, data->arr[k].clr); //!!!!!
 		k++;
 	}
 }
@@ -108,7 +108,7 @@ void read_map(int argc, char **argv, int fd, t_mlx *data)
 			split(data, line, ++i);
 			ft_strdel(&line);
 		}
-	write(1, "wirte\n", 6);
+//	write(1, "wirte\n", 6);
 	ft_strdel(&line);
 	close(fd);
 }

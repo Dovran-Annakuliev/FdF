@@ -26,8 +26,8 @@
 
 # define W 2560
 # define H 1600
-# define iW 2560
-# define iH 1600
+# define iW 3//2560
+# define iH 3//1600
 
 typedef struct	s_point
 {
@@ -46,7 +46,7 @@ typedef struct	s_map
 typedef struct	s_image
 {
 	void		*image;
-	char		*img_data;
+	int			*img_data;
 	int			bbp;
 	int			sz_l;
 	int 		end;
@@ -66,6 +66,7 @@ t_mlx			*start(int argc, char **argv);
 int				main(int argc, char **argv);
 void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			ft_error(int err);
-void			create_background(t_mlx *data);
+//void			create_background(t_mlx *data);
+int 	deal_key(int key, t_mlx *data);
 
 #endif

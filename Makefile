@@ -12,7 +12,7 @@
 
 GCC = gcc -Wall -Wextra -Werror -g
 NAME = fdf
-SRCS = main.c start.c read_map.c ft_error.c
+SRCS = main.c start.c read_map.c ft_error.c key.c
 OBJS = $(SRCS:.c=.o)
 HEAD = -c -I fdf.h
 LIB = -L libft -lft -L sources/minilibx_macos -lmlx -framework OpenGL -framework Appkit

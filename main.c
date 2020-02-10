@@ -61,17 +61,19 @@ int		main(int argc, char **argv)
 
 	i = 0;
 	data = start(argc, argv);
-	printf("map = %d\n", (data->map.heg * data->map.len));
-	while (i < (data->map.heg * data->map.len))
-	{
-
-		printf("i = %d\nx = %d. y = %d, z = %d, clr = %d\n", i, data->arr[i].x, data->arr[i].y, data->arr[i].z, data->arr[i].clr);
-		i++;
-	}
+//	printf("map = %d\n", (data->map.heg * data->map.len));
+//	while (i < (data->map.heg * data->map.len))
+//	{
+//
+//		printf("i = %d\nx = %d. y = %d, z = %d, clr = %d\n", i, data->arr[i].x, data->arr[i].y, data->arr[i].z, data->arr[i].clr);
+//		i++;
+//	}
 //	mlx_key_hook(data->window, deal_key, data);
 //	dda(data);
 //
-//	mlx_loop(data->mlx);
+	mlx_put_image_to_window(data->mlx, data->window, data->img.image, 0, 0);
+	mlx_hook(data->window, 2, 1l<<0, deal_key, data);
+	mlx_loop(data->mlx);
 	return (0);
 }
 
