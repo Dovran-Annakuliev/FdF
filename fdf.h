@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/14 16:25:37 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/14 17:54:45 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			errors(int err);
 int				deal_key(int key, t_mlx *data);
 int				ft_atoi_base(const char *str);
-void			shaolin_wu(t_mlx *data, int prjc);
+void			shaolin_wu(t_mlx *data, int projections);
 
 #endif
 
