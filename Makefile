@@ -6,13 +6,13 @@
 #    By: rfork <rfork@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/05 17:09:20 by rfork             #+#    #+#              #
-#    Updated: 2020/01/25 11:12:40 by rfork            ###   ########.fr        #
+#    Updated: 2020/02/14 14:32:06 by rfork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 GCC = gcc -Wall -Wextra -Werror -g
 NAME = fdf
-SRCS = main.c start.c read_map.c ft_error.c key.c
+SRCS = main.c start.c read_map.c errors.c key.c atoi_base.c
 OBJS = $(SRCS:.c=.o)
 HEAD = -c -I fdf.h
 LIB = -L libft -lft -L sources/minilibx_macos -lmlx -framework OpenGL -framework Appkit
