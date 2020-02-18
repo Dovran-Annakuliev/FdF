@@ -6,23 +6,23 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/14 17:54:45 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 14:29:12 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <math.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <math.h>
 
-# include "libft/libft.h"
-# include "sources/minilibx_macos/mlx.h"
+#include "libft/libft.h"
+#include "sources/minilibx_macos/mlx.h"
 
 # define W 1920
 # define H 1080
@@ -31,9 +31,9 @@
 
 typedef struct	s_point
 {
-	int			x;
-	int			y;
-	int			z;
+	double		x;
+	double		y;
+	double		z;
 	int			clr;
 }				t_point;
 
@@ -59,6 +59,7 @@ typedef struct	s_mlx
 	t_point		*arr;
 	t_map		map;
 	t_image		img;
+	double		zoom;
 }				t_mlx;
 
 t_mlx			*start(int argc, char **argv);
@@ -67,7 +68,15 @@ void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			errors(int err);
 int				deal_key(int key, t_mlx *data);
 int				ft_atoi_base(const char *str);
-void			shaolin_wu(t_mlx *data, int projections);
+void			shaolin_wu(t_mlx *data, t_point crd1, t_point crd2);
+
+
+
+/*
+ ** -------------------other----------------------
+ */
+
+void		print_point(t_point p);
 
 #endif
 

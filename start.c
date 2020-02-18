@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/14 17:53:42 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 15:09:20 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ t_mlx	*start(int argc, char **argv)
 		errors(0);
 	create_background(data);
 	read_map(argc, argv, 0, data);
-	shaolin_wu(data, 1);
+	data->zoom = 30.0f;
 	return (data);
 }

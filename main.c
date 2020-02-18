@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/26 17:38:13 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 15:00:56 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,24 @@ int		main(int argc, char **argv)
 {
 	t_mlx *data;
 	int i;
+	int j;
 
-	i = 0;
+	i = -1;
 	data = start(argc, argv);
+	for (int k = 0; k < (data->map.heg * data->map.len) ; ++k)
+		print_point(data->arr[k]);
+	while (++i < data->map.heg)
+	{
+		j = -1;
+		while(++j < data->map.len)
+		{
+			if (j < data->map.len - 1)
+				shaolin_wu(data, data->arr[i * data->map.len + j], data->arr[i * data->map.len + j + 1]);
+			if (i < data->map.heg - 1)
+				shaolin_wu(data, data->arr[i * data->map.len + j], data->arr[(i + 1) * data->map.len + j]);
+//			printf("x = %d\ty = %d\n", j, i);
+		}
+	}
 //	printf("map = %d\n", (data->map.heg * data->map.len));
 //	while (i < (data->map.heg * data->map.len))
 //	{

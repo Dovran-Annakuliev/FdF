@@ -6,11 +6,17 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:16:25 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/14 14:51:10 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 15:13:08 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	print_point(t_point p)
+{
+	printf("x = %f\ty = %f\tz = %f\tclr = %x\n", p.x, p.y, p.z, p.clr);
+}
+
 
 static int	ft_strlen_split(char const *s, char c)
 {
@@ -32,17 +38,25 @@ static void	split(t_mlx *data, char *line, int i)
 	char	**array;
 
 	j = -1;
-	k = i * 10;
+	k = i * data->map.len;
 	array = ft_strsplit(line, ' ');
 	while (array[++j])
 	{
 		data->arr[k].x = j;
 		data->arr[k].y = i;
-		data->arr[k].z = ft_atoi(array[j]);
+		data->arr[k].z = (double)ft_atoi(array[j]);
+		printf("zb = %f\t", data->arr[k].z);
 		if (ft_strchr(array[j], ','))
 			data->arr[k].clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
 		else
-			data->arr[k].clr = 0xbebebe;
+		{
+			if (data->arr[k].z == 0)
+				data->arr[k].clr = 0xbebebe;
+			else
+				data->arr[k].clr = 0xffff00;
+		}
+		printf("za = %f\n", data->arr[k].z);
+		print_point(data->arr[k]);
 		k++;
 	}
 }
