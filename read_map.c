@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/18 17:34:23 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 18:17:16 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,31 @@ void	print_point(t_point p)
 
 static int	ft_strlen_split(char const *s, char c)
 {
-	int i;
-	int len;
+//	int i;
+//	int len;
+//
+//	i = -1;
+//	len = 0;
+//	while (s[++i] != '\0')
+//		if (s[i] != c && (!s[i + 1] || s[i + 1] == c))
+//			len++;
+//	return (len);
 
-	i = -1;
-	len = 0;
-	while (s[++i] != '\0')
-		if (s[i] != c && (!s[i + 1] || s[i + 1] == c))
-			len++;
-	return (len);
+	int	words;
+
+	words = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			while (*s && *s != c)
+				s++;
+			words++;
+		}
+	}
+	return (words);
 }
 
 static void	split(t_mlx *data, char *line, int i)
@@ -75,15 +91,27 @@ static void	split(t_mlx *data, char *line, int i)
 	}
 }
 
-static void	write_size(int fd, char *line, t_mlx *data)
+static void	read_size(int fd, char *line, t_mlx *data)
 {
+	int i;
+
+	i = 0;
 	while (get_next_line(fd, &line))
 	{
+		++i;
 		if (!data->map.len)
+		{
+			write(1, "a\n", 2);
 			data->map.len = ft_strlen_split(line, ' ');
+			write(1, "b\n", 2);
+		}
 		if (data->map.len != ft_strlen_split(line, ' '))
 			errors(2);
+		printf("i = %d\n", i);
+//		write(1, "c\n", 2);
 		ft_strdel(&line);
+//		free(line);
+//		write(1, "d\n", 2);
 		data->map.heg++;
 	}
 }
@@ -93,16 +121,20 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 	char	*line;
 	int		i;
 
+	write(1, "1\n", 2);
 	line = NULL;
 	data->map.heg = 0;
 	data->map.len = 0;
 	if (argc != 2 || (((fd = open(argv[1], O_RDONLY)) < 0)))
 		errors(1);
-	write_size(fd, line, data);
+	write(1, "2\n", 2);
+	read_size(fd, line, data);
+	write(1, "3\n", 2);
 	ft_strdel(&line);
 	data->arr = (t_point *)malloc(sizeof(t_point)
 			* data->map.heg * data->map.len);
 	close(fd);
+	write(1, "4\n", 2);
 	i = -1;
 	fd = open(argv[1], O_RDONLY);
 	while (get_next_line(fd, &line))
@@ -110,6 +142,7 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 		split(data, line, ++i);
 		ft_strdel(&line);
 	}
+	write(1, "5\n", 2);
 	ft_strdel(&line);
 	close(fd);
 }
