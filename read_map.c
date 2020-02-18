@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 11:16:25 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/18 15:13:08 by rfork            ###   ########.fr       */
+/*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
+/*   Updated: 2020/02/18 17:34:23 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,32 @@ static void	split(t_mlx *data, char *line, int i)
 		data->arr[k].x = j;
 		data->arr[k].y = i;
 		data->arr[k].z = (double)ft_atoi(array[j]);
-		printf("zb = %f\t", data->arr[k].z);
+//		printf("zb = %f\t", data->arr[k].z);
+//		if (ft_strchr(array[j], ','))
+//			data->arr[k].clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
+//		else
+//		{
+//			if (data->arr[k].z == 0)
+//				data->arr[k].clr = 0xbebebe;
+//			else
+//				data->arr[k].clr = 0xff00ff;
+//		}
 		if (ft_strchr(array[j], ','))
 			data->arr[k].clr = ft_atoi_base(ft_strchr(array[j], ',') + 1);
-		else
-		{
-			if (data->arr[k].z == 0)
-				data->arr[k].clr = 0xbebebe;
-			else
-				data->arr[k].clr = 0xffff00;
-		}
-		printf("za = %f\n", data->arr[k].z);
-		print_point(data->arr[k]);
+//		else if (data->arr[k].z == 0)
+//			data->arr[k].clr = 0xd2691e;
+//		else if (data->arr[k].z > 0)
+//			data->arr[k].clr = 0xbebebe;
+//		else if (data->arr[k].z < 0)
+//			data->arr[k].clr = 0x1e90ff;
+		else if (data->arr[k].z == 0)
+			data->arr[k].clr = 0xffffff;
+		else if (data->arr[k].z > 0)
+			data->arr[k].clr = 0xff0000;
+		else if (data->arr[k].z < 0)
+			data->arr[k].clr = 0x0000ff;
+//		printf("za = %f\n", data->arr[k].z);
+//		print_point(data->arr[k]);
 		k++;
 	}
 }

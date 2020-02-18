@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/18 14:29:12 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/18 14:42:06 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			errors(int err);
 int				deal_key(int key, t_mlx *data);
 int				ft_atoi_base(const char *str);
 void			shaolin_wu(t_mlx *data, t_point crd1, t_point crd2);
+void			draw_image(t_mlx *data);
 
 
 
