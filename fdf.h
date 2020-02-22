@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 10:25:09 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 15:43:07 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <math.h>
 
 #include "libft/libft.h"
+#include "key.h"
 #include "sources/minilibx_macos/mlx.h"
 
 # define W 1920
@@ -57,6 +58,12 @@ typedef struct	s_cam
 	double		zoom;
 	double		x_dplace;
 	double		y_dplace;
+	double      x_m_dplc;
+	double		y_m_dplc;
+	double 		zoom_z;
+	double 		angle_x;
+	double 		angle_y;
+	double 		angle_z;
 }				t_cam;
 
 
@@ -89,16 +96,3 @@ void		print_point(t_point p);
 
 #endif
 
-/*
-**t_color     int_to_rgb(int rgb)
-**{
-**	t_color col;
-**	if (rgb == -1)
-**		return (g_color(col, 0));
-**	col.br = 1;
-**	col.b = rgb & 255;
-**	col.g = (rgb >> 8) & 255;
-**	col.r = (rgb >> 16) & 255;
-**	return (col);
-**}
-*/

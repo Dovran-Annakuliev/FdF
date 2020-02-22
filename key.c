@@ -6,17 +6,63 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 11:22:50 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 15:30:07 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void		rot_x(t_mlx *data, int key)
+{
+	if (key == angl_x_p)
+		data->cam.angle_x += 0.0174533;
+	if (key == angl_x_m)
+		data->cam.angle_x -= 0.0174533;
+	draw_image(data);
+}
+
+static void		rot_y(t_mlx *data, int key)
+{
+	if (key == angl_y_p)
+		data->cam.angle_y += 0.0174533;
+	if (key == angl_y_m)
+		data->cam.angle_y -= 0.0174533;
+	draw_image(data);
+}
+
+static void		rot_z(t_mlx *data, int key)
+{
+	if (key == angl_z_p)
+		data->cam.angle_z += 0.0174533;
+	if (key == angl_z_m)
+		data->cam.angle_z -= 0.0174533;
+	draw_image(data);
+}
+
+static void 	def(t_mlx *data)
+{
+	data->cam.zoom = 10.0f;
+	data->cam.zoom_z = 1.0f;
+	data->cam.angle_x = 0.0f;
+	data->cam.angle_y = 0.0f;
+	data->cam.angle_z = 0.0f;
+	draw_image(data);
+}
+
+static void		change_z(t_mlx *data, int key)
+{
+	if (key == z_p)
+		data->cam.zoom_z++;
+	if (key == z_m)
+		data->cam.zoom_z--;
+	draw_image(data);
+}
+
 static void		zoom(t_mlx *data, int key)
 {
-	if (key == 24)
+	if (key == zoom_p)
 		data->cam.zoom += 5.0f;
-	if (key == 27)
+	if (key == zoom_m)
 	{
 		if (data->cam.zoom >= 10.0f)
 			data->cam.zoom -= 5.0f;
@@ -33,9 +79,19 @@ static void 	close_fdf(t_mlx *data)
 
 int 	deal_key(int key, t_mlx *data)
 {
-	if (key == 24 || key == 27)
+	if (key == angl_x_p || key == angl_x_m)
+		rot_x(data, key);
+	if (key == angl_y_p || key == angl_y_m)
+		rot_y(data, key);
+	if (key == angl_z_p || key == angl_z_m)
+		rot_z(data, key);
+	if (key == default)
+		def(data);
+	if (key == z_m || key == z_p)
+		change_z(data, key);
+	if (key == zoom_m || key == zoom_p)
 		zoom(data, key);
-	if (key == 53)
+	if (key == esc)
 		close_fdf(data);
 	return (0);
 }

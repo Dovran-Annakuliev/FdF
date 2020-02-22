@@ -14,7 +14,7 @@ GCC = gcc -Wall -Wextra -Werror -g
 NAME = fdf
 SRCS = main.c start.c read_map.c errors.c key.c atoi_base.c shaolin_wu.c draw_image.c
 OBJS = $(SRCS:.c=.o)
-HEAD = -c -I fdf.h
+HEAD = -c -I fdf.h key.h
 LIB = -L libft -lft -L sources/minilibx_macos -lmlx -framework OpenGL -framework Appkit
 
 all: $(NAME)

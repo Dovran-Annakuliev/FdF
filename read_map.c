@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 11:00:27 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 16:03:02 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,11 +145,5 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 //	write(1, "5\n", 2);
 	ft_strdel(&line);
 	close(fd);
-//	data->cam.y_dplace = (int)((IH / 2.0f) - ((data->map.heg * data->cam.zoom) / 2));
-//	data->cam.x_dplace = (int)((IW / 2.0f) - ((data->map.len * data->cam.zoom) / 2));
 }
 
-/*
-**printf("x = %d, y = %d, z = %d, clr = %x\n", data->arr[k].x,
-** data->arr[k].y, data->arr[k].z, data->arr[k].clr);
-*/

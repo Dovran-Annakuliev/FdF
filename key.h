@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   hey.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 12:43:46 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/25 11:12:40 by rfork            ###   ########.fr       */
+/*   Created: 2020/02/22 14:15:46 by rfork             #+#    #+#             */
+/*   Updated: 2020/02/22 15:26:17 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 10000
+#ifndef KEY_H
+# define KEY_H
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <limits.h>
-
-# include "libft/libft.h"
-
-int	get_next_line(const int fd, char **line);
+# define esc 53
+# define zoom_p 69
+# define zoom_m 78
+# define z_p 67
+# define z_m 75
+# define default 71
+# define angl_x_p 88
+# define angl_x_m 86
+# define angl_y_p 91
+# define angl_y_m 87
+# define angl_z_p 92
+# define angl_z_m 89
 
 #endif
