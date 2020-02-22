@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:11:59 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 16:17:26 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,5 @@ t_mlx	*start(int argc, char **argv)
 	data->cam.angle_x = 0.0f;
 	data->cam.angle_y = 0.0f;
 	data->cam.angle_z = 0.0f;
-//	data->cam.y_m_dplc = (data->map.heg * data->cam.zoom) / 2;
-//	data->cam.x_m_dplc = (data->map.len * data->cam.zoom) / 2;
-//	data->cam.y_m_dplc = data->map.heg / 2;
-//	data->cam.x_m_dplc = data->map.len / 2;
-//	printf("center[%f][%f]\n", data->cam.x_m_dplc, data->cam.y_m_dplc);
 	return (data);
 }

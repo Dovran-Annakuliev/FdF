@@ -26,7 +26,7 @@ void draw_image(t_mlx *data)
 	int i;
 	int j;
 
-	data->cam.y_dplace = (int)((IH / 2.0f) - ((data->map.heg * data->cam.zoom) / 2.0f));
+	data->cam.y_dplace = (int)((IH / 2.0f));// - ((data->map.heg * data->cam.zoom) / 2.0f));
 	data->cam.x_dplace = (int)((IW / 2.0f));// - ((data->map.len * data->cam.zoom) / 2.0f));
 //	if (!(data->img.image = mlx_new_image(data->mlx, IW, IH)))
 //		errors(0);

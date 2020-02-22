@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:33:26 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:20:18 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 16:58:10 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 	double dy;
 	int steps;
 	int color;
+	int d_red;
+	int d_green;
+	int d_blue;
+	int red;
+	int green;
+	int blue;
 
 
 	crd1.x *= data->cam.zoom;
@@ -91,12 +97,31 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 		steps = (int)fabs(dy);
 	dx = dx / steps;
 	dy = dy / steps;
+	red = crd1.clr >> 16 & 0xFF;
+	green = crd1.clr >> 8 & 0xFF;
+	blue = crd1.clr & 0xFF;
+	if (crd1.clr != crd2.clr)
+	{
+		d_red = (((crd2.clr >> 16) & 0xFF) - ((crd1.clr >> 16) & 0xFF)) / steps;
+		d_green = (((crd2.clr >> 8) & 0xFF) - ((crd1.clr >> 8) & 0xFF)) / steps;
+		d_blue = ((crd2.clr & 0xFF) - (crd1.clr & 0xFF)) / steps;
+	}
+	else
+	{
+		d_red = 0;
+		d_green = 0;
+		d_blue = 0;
+	}
 	while ((int)(crd1.x - crd2.x) || (int)(crd1.y - crd2.y))
 	{
 		if (((int)crd1.x >= 0 && (int)crd1.x < IW) && ((int)crd1.y >= 0 && (int)crd1.y < IH))
-			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
+			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((red << 16) | (green << 8) | blue);
+//			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
 		crd1.x += dx;
 		crd1.y += dy;
+		red += d_red;
+		green += d_green;
+		blue += d_blue;
 	}
 }
 

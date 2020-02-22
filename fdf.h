@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 15:43:07 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 15:54:37 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ typedef struct	s_cam
 	double		zoom;
 	double		x_dplace;
 	double		y_dplace;
-	double      x_m_dplc;
-	double		y_m_dplc;
 	double 		zoom_z;
 	double 		angle_x;
 	double 		angle_y;

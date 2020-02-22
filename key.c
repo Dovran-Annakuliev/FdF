@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 15:30:07 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 16:54:15 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static void		zoom(t_mlx *data, int key)
 	{
 		if (data->cam.zoom >= 10.0f)
 			data->cam.zoom -= 5.0f;
+//		else
+//			data->cam.zoom = 1.0f;
 	}
 //	mlx_destroy_image(data->mlx, data->img.image);
 	draw_image(data);
