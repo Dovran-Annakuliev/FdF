@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/18 14:42:06 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/22 10:25:09 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,22 @@ typedef struct	s_image
 	int			end;
 }				t_image;
 
+typedef struct	s_cam
+{
+	double		zoom;
+	double		x_dplace;
+	double		y_dplace;
+}				t_cam;
+
+
 typedef struct	s_mlx
 {
 	void		*window;
 	void		*mlx;
 	t_point		*arr;
+	t_cam 		cam;
 	t_map		map;
 	t_image		img;
-	double		zoom;
 }				t_mlx;
 
 t_mlx			*start(int argc, char **argv);
