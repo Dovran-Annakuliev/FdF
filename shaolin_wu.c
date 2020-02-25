@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:33:26 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:58:10 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/24 18:59:04 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 {
 	double dx;
 	double dy;
+//	double bri;
 	int steps;
-	int color;
 	int d_red;
 	int d_green;
 	int d_blue;
@@ -82,13 +82,15 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 	rot_y(&crd2.x, &crd2.z, data);
 	rot_z(&crd1.x, &crd1.y, data);
 	rot_z(&crd2.x, &crd2.y, data);
-	iso(&crd1.x, &crd1.y, crd1.z);
-	iso(&crd2.x, &crd2.y, crd2.z);
+	if (data->map.prj == 1)
+	{
+		iso(&crd1.x, &crd1.y, crd1.z);
+		iso(&crd2.x, &crd2.y, crd2.z);
+	}
 	crd1.x += data->cam.x_dplace;
 	crd1.y += data->cam.y_dplace;
 	crd2.x += data->cam.x_dplace;
 	crd2.y += data->cam.y_dplace;
-	color = (crd1.z > crd2.z) ? crd1.clr : crd2.clr;
 	dx = crd2.x - crd1.x;
 	dy = crd2.y - crd1.y;
 	if (fabs(dx) > fabs(dy))
@@ -112,11 +114,70 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 		d_green = 0;
 		d_blue = 0;
 	}
+//	if (dx > dy)
+//	{
+//		while ((int) (crd1.x - crd2.x) || (int) (crd1.y - crd2.y))
+//		{
+//			if ((bri = crd1.y) > 5.0f)
+//			{
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) crd1.y >= 0 && (int) crd1.y < IH))
+//					data->img.img_data[(int) crd1.y * IW + (int) crd1.x] = (((red * (int)bri / 10) << 16) | ((green * (int)bri / 10) << 8) | (blue * (int)bri / 10));
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) (crd1.y + 1) >= 0 && (int) (crd1.y + 1) < IH))
+//					data->img.img_data[(int) (crd1.y + 1) * IW + (int) crd1.x] = (((red * (int)(10 - bri) / 10) << 16) | ((green * (int)(10 - bri) / 10) << 8) | (blue * (int)(10 - bri) / 10));
+//				crd1.x += dx;
+//				crd1.y += dy;
+//				red += d_red;
+//				green += d_green;
+//				blue += d_blue;
+//			}
+//			else
+//			{
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) crd1.y >= 0 && (int) crd1.y < IH))
+//					data->img.img_data[(int) crd1.y * IW + (int) crd1.x] = (((red * (int)(10 - bri) / 10) << 16) | ((green * (int)(10 - bri) / 10) << 8) | (blue * (int)(10 - bri) / 10));
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) (crd1.y - 1) >= 0 && (int) (crd1.y - 1) < IH))
+//					data->img.img_data[(int) (crd1.y - 1) * IW + (int) crd1.x] = (((red * (int)bri / 10) << 16) | ((green * (int)bri / 10) << 8) | (blue * (int)bri / 10));
+//				crd1.x += dx;
+//				crd1.y += dy;
+//				red += d_red;
+//				green += d_green;
+//				blue += d_blue;
+//			}
+//		}
+//	}
+//	else
+//	{
+//		while ((int) (crd1.x - crd2.x) || (int) (crd1.y - crd2.y))
+//		{
+//			if (fabs(bri = (10 * crd1.x - (int)crd1.x) * 10) > 5.0f)
+//			{
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) crd1.y >= 0 && (int) crd1.y < IH))
+//					data->img.img_data[(int) crd1.y * IW + (int) crd1.x] = (((red * (int)bri / 10) << 16) | ((green * (int)bri / 10) << 8) | (blue * (int)bri / 10));
+//				if (((int) (crd1.x + 1) >= 0 && (int) (crd1.x + 1) < IW) && ((int) (crd1.y) >= 0 && (int) (crd1.y) < IH))
+//					data->img.img_data[(int) (crd1.y) * IW + (int) crd1.x + 1] = (((red * (int)(10 - bri) / 10) << 16) | ((green * (int)(10 - bri) / 10) << 8) | (blue * (int)(10 - bri) / 10));
+//				crd1.x += dx;
+//				crd1.y += dy;
+//				red += d_red;
+//				green += d_green;
+//				blue += d_blue;
+//			}
+//			else
+//			{
+//				if (((int) crd1.x >= 0 && (int) crd1.x < IW) && ((int) crd1.y >= 0 && (int) crd1.y < IH))
+//					data->img.img_data[(int) crd1.y * IW + (int) crd1.x] = (((red * (int)(10 - bri) / 10) << 16) | ((green * (int)(10 - bri) / 10) << 8) | (blue * (int)(10 - bri) / 10));
+//				if (((int) (crd1.x - 1) >= 0 && (int) (crd1.x - 1) < IW) && ((int) (crd1.y) >= 0 && (int) (crd1.y) < IH))
+//					data->img.img_data[(int)crd1.y * IW + (int)crd1.x - 1] = (((red * (int)bri / 10) << 16) | ((green * (int)bri / 10) << 8) | (blue * (int)bri / 10));
+//				crd1.x += dx;
+//				crd1.y += dy;
+//				red += d_red;
+//				green += d_green;
+//				blue += d_blue;
+//			}
+//		}
+//	}
 	while ((int)(crd1.x - crd2.x) || (int)(crd1.y - crd2.y))
 	{
 		if (((int)crd1.x >= 0 && (int)crd1.x < IW) && ((int)crd1.y >= 0 && (int)crd1.y < IH))
 			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((red << 16) | (green << 8) | blue);
-//			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
 		crd1.x += dx;
 		crd1.y += dy;
 		red += d_red;
@@ -124,4 +185,5 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 		blue += d_blue;
 	}
 }
+
 

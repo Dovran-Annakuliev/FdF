@@ -6,11 +6,20 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:54:15 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/24 21:04:52 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void		project(t_mlx *data)
+{
+	if (data->map.prj == 0)
+		data->map.prj = 1;
+	else
+		data->map.prj = 0;
+	draw_image(data);
+}
 
 static void		rot_x(t_mlx *data, int key)
 {
@@ -81,15 +90,18 @@ static void 	close_fdf(t_mlx *data)
 
 int 	deal_key(int key, t_mlx *data)
 {
-	if (key == angl_x_p || key == angl_x_m)
+//	printf("key = %d\n", key);
+	if (key == projection)
+		project(data);
+	if ((key == angl_x_p || key == angl_x_m) && data->map.prj == 1)
 		rot_x(data, key);
-	if (key == angl_y_p || key == angl_y_m)
+	if ((key == angl_y_p || key == angl_y_m) && data->map.prj == 1)
 		rot_y(data, key);
-	if (key == angl_z_p || key == angl_z_m)
+	if ((key == angl_z_p || key == angl_z_m) && data->map.prj == 1)
 		rot_z(data, key);
 	if (key == default)
 		def(data);
-	if (key == z_m || key == z_p)
+	if ((key == z_m || key == z_p) && data->map.prj == 1)
 		change_z(data, key);
 	if (key == zoom_m || key == zoom_p)
 		zoom(data, key);

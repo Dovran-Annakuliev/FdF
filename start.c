@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:17:26 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/23 17:22:09 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ t_mlx	*start(int argc, char **argv)
 		errors(0);
 	read_map(argc, argv, 0, data);
 	displace(data);
-	data->cam.zoom = 10.0f;
+	data->map.prj = 0;
+	data->cam.zoom = 35.0f;
 	data->cam.zoom_z = 1.0f;
 	data->cam.angle_x = 0.0f;
 	data->cam.angle_y = 0.0f;

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 16:03:02 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/24 20:41:13 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,10 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 	line = NULL;
 	data->map.heg = 0;
 	data->map.len = 0;
-	if (argc != 2 || (((fd = open(argv[1], O_RDONLY)) < 0)))
+	if (argc != 2 || ((fd = open(argv[1], O_RDONLY)) < 0) || ((read(fd, line, 0)) < 0))
 		errors(1);
+//	if (fd < 0 || fd > 10240 || !line || ((read(fd, buf, 0)) < 0))
+//		return (-1);
 //	write(1, "2\n", 2);
 	read_size(fd, line, data);
 //	write(1, "3\n", 2);

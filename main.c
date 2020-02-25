@@ -15,9 +15,9 @@
 int		main(int argc, char **argv)
 {
 	t_mlx *data;
-	int i;
+//	int i;
 
-	i = -1;
+//	i = -1;
 	data = start(argc, argv);
 //	for (int k = 0; k < (data->map.heg * data->map.len) ; ++k)
 //		print_point(data->arr[k]);
