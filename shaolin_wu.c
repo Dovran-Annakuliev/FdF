@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:33:26 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 16:17:25 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 16:47:56 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void rot_x(double *y, double *z, t_mlx *data)
 //	n_z = *z;
 //	*y = n_y * cos(data->cam.angle_x) + n_z * sin(data->cam.angle_x);
 //	*z = -n_y * sin(data->cam.angle_x) + n_z * cos(data->cam.angle_x);
-	*y = n_y * data->cam.cos_y + *z * data->cam.sin_x;
+	*y = n_y * data->cam.cos_x + *z * data->cam.sin_x;
 	*z = -n_y * data->cam.sin_x + *z * data->cam.cos_x;
 }
 
@@ -67,7 +67,7 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 	double dx;
 	double dy;
 //	double bri;
-	int steps;
+	double steps;
 	int d_r;
 	int d_g;
 	int d_b;
@@ -104,35 +104,38 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 		steps = (int) fabs(dx);
 	else
 		steps = (int) fabs(dy);
-	dx = dx / steps;
-	dy = dy / steps;
-//	color = (crd1.z > crd2.z) ? crd1.clr : crd2.clr;
 	r = crd1.clr >> 16 & 0xFF;
 	g = crd1.clr >> 8 & 0xFF;
 	b = crd1.clr & 0xFF;
-	if (crd1.clr != crd2.clr)
-	{
-		d_r = (((crd2.clr >> 16) & 0xFF) - ((crd1.clr >> 16) & 0xFF)) / steps;
-		d_g = (((crd2.clr >> 8) & 0xFF) - ((crd1.clr >> 8) & 0xFF)) / steps;
-		d_b = ((crd2.clr & 0xFF) - (crd1.clr & 0xFF)) / steps;
-	}
-	else
-	{
-		d_r = 0;
-		d_g = 0;
-		d_b = 0;
-	}
-	while ((int)(crd1.x - crd2.x) || (int)(crd1.y - crd2.y))
-	{
-		if (((int)crd1.x >= 0 && (int)crd1.x < IW) && ((int)crd1.y >= 0 && (int)crd1.y < IH))
-			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = (((int)r << 16) | ((int)g << 8) | (int)b);
-//			data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
-		crd1.x += dx;
-		crd1.y += dy;
-		r += d_r;
-		g += d_g;
-		b += d_b;
-	}
+//	if (dx != 0 && dy != 0)
+//	{
+		dx = dx / steps;
+		dy = dy / steps;
+//		color = (crd1.z > crd2.z) ? crd1.clr : crd2.clr;
+
+		if (crd1.clr != crd2.clr)
+		{
+			d_r = (((crd2.clr >> 16) & 0xFF) - ((crd1.clr >> 16) & 0xFF)) / steps;
+			d_g = (((crd2.clr >> 8) & 0xFF) - ((crd1.clr >> 8) & 0xFF)) / steps;
+			d_b = ((crd2.clr & 0xFF) - (crd1.clr & 0xFF)) / steps;
+		}
+		else
+		{
+			d_r = 0;
+			d_g = 0;
+			d_b = 0;
+		}
+		while ((int)(crd1.x - crd2.x) || (int)(crd1.y - crd2.y))
+		{
+			if (((int)crd1.x >= 0 && (int)crd1.x < IW) && ((int)crd1.y >= 0 && (int)crd1.y < IH))
+				data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((r << 16) | (g << 8) | b);
+//				data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
+			crd1.x += dx;
+			crd1.y += dy;
+			r += d_r;
+			g += d_g;
+			b += d_b;
+		}
 //	if (dx > dy)
 //	{
 //		while ((int) (crd1.x - crd2.x) || (int) (crd1.y - crd2.y))
@@ -193,6 +196,10 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 //			}
 //		}
 //	}
+//	}
+//	else
+//		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
+//		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((r << 16) | (g << 8) | b);
 }
 
 
