@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/22 15:54:37 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/23 17:22:09 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_map
 {
 	int			heg;
 	int			len;
+	int			prj;
 }				t_map;
 
 typedef struct	s_image
