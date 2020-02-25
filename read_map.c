@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/24 20:41:13 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/25 17:26:36 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,10 @@ static void	split(t_mlx *data, char *line, int i)
 //		print_point(data->arr[k]);
 		k++;
 	}
+	j = -1;
+	while (array[++j])
+		free(array[j]);
+	free(array);
 }
 
 static void	read_size(int fd, char *line, t_mlx *data)

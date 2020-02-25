@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 16:28:34 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 17:36:43 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,9 @@ static void		zoom(t_mlx *data, int key)
 
 static void 	close_fdf(t_mlx *data)
 {
-	mlx_clear_window(data->mlx, data->window);
+	free(data->arr);
 	mlx_destroy_image(data->mlx, data->img.img_data);
+	mlx_clear_window(data->mlx, data->window);
 	(void)data;
 	exit(0);
 }
