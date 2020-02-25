@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 14:15:46 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 14:34:11 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 18:02:43 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # define angl_y_m 87
 # define angl_z_p 92
 # define angl_z_m 89
+# define x_dp_m 123
+# define x_dp_p 124
+# define y_dp_m 126
+# define y_dp_p 125
 # define projection 65
 
 /*

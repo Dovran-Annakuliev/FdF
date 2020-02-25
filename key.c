@@ -6,11 +6,29 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 17:36:43 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 17:38:55 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void		shift_x(t_mlx *data, int key)
+{
+	if (key == x_dp_p)
+		data->cam.x_dp++;
+	if (key == x_dp_m)
+		data->cam.x_dp--;
+	draw_image(data);
+}
+
+static void		shift_y(t_mlx *data, int key)
+{
+	if (key == y_dp_p)
+		data->cam.y_dp++;
+	if (key == y_dp_m)
+		data->cam.y_dp--;
+	draw_image(data);
+}
 
 static void		project(t_mlx *data)
 {
@@ -79,6 +97,8 @@ static void 	def(t_mlx *data)
 	data->cam.cos_y = 1.0f;
 	data->cam.sin_z = 0.0f;
 	data->cam.cos_z = 1.0f;
+	data->cam.x_dp = 0.0f;
+	data->cam.y_dp = 0.0f;
 	draw_image(data);
 }
 
@@ -118,6 +138,10 @@ static void 	close_fdf(t_mlx *data)
 int 	deal_key(int key, t_mlx *data)
 {
 //	printf("key = %d\n", key);
+	if (key == x_dp_p || key == x_dp_m)
+		shift_x(data, key);
+	if (key == y_dp_p || key == y_dp_m)
+		shift_y(data, key);
 	if (key == projection)
 		project(data);
 	if ((key == angl_x_p || key == angl_x_m) && data->map.prj == 1)

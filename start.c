@@ -56,5 +56,7 @@ t_mlx	*start(int argc, char **argv)
 	data->cam.cos_y = 1.0f;
 	data->cam.sin_z = 0.0f;
 	data->cam.cos_z = 1.0f;
+	data->cam.x_dp = 0.0f;
+	data->cam.y_dp = 0.0f;
 	return (data);
 }

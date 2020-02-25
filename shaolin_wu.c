@@ -77,6 +77,10 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 //	int color;
 
 
+	crd1.x += data->cam.x_dp;
+	crd1.y += data->cam.y_dp;
+	crd2.x += data->cam.x_dp;
+	crd2.y += data->cam.y_dp;
 	crd1.x *= data->cam.zoom;
 	crd1.y *= data->cam.zoom;
 	crd1.z *= data->cam.zoom_z;
