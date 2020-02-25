@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 17:38:55 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 21:01:12 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ static void		shift_y(t_mlx *data, int key)
 		data->cam.y_dp++;
 	if (key == y_dp_m)
 		data->cam.y_dp--;
+	draw_image(data);
+}
+
+static void		shift_z(t_mlx *data, int key)
+{
+	if (key == z_dp_p)
+		data->cam.z_dp += 10;
+	if (key == z_dp_m)
+		data->cam.z_dp -= 10;
 	draw_image(data);
 }
 
@@ -137,11 +146,13 @@ static void 	close_fdf(t_mlx *data)
 
 int 	deal_key(int key, t_mlx *data)
 {
-//	printf("key = %d\n", key);
+	printf("key = %d\n", key);
 	if (key == x_dp_p || key == x_dp_m)
 		shift_x(data, key);
 	if (key == y_dp_p || key == y_dp_m)
 		shift_y(data, key);
+	if ((key == z_dp_p || key == z_dp_m) && data->map.prj == 1)
+		shift_z(data, key);
 	if (key == projection)
 		project(data);
 	if ((key == angl_x_p || key == angl_x_m) && data->map.prj == 1)

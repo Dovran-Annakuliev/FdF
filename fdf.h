@@ -25,19 +25,19 @@
 #include "key.h"
 #include "sources/minilibx_macos/mlx.h"
 
-# define W 2560
-# define H 1600
-# define IW 2560
-# define IH 1600
+//# define W 2560
+//# define H 1600
+//# define IW 2560
+//# define IH 1600
 
 /*
 ** -------------------LINUX----------------------
 */
 
-//# define W 1920
-//# define H 1080
-//# define IW 1920
-//# define IH 1080
+# define W 1920
+# define H 1080
+# define IW 1920
+# define IH 1080
 
 typedef struct	s_point
 {
@@ -70,6 +70,7 @@ typedef struct	s_cam
 	double		y_dplace;
 	double		x_dp;
 	double		y_dp;
+	double		z_dp;
 	double 		zoom_z;
 	double 		angle_x;
 	double 		angle_y;

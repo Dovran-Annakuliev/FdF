@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 15:33:26 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 16:47:56 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/26 00:11:53 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,32 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 
 	crd1.x += data->cam.x_dp;
 	crd1.y += data->cam.y_dp;
+//	crd1.z += data->cam.z_dp;
 	crd2.x += data->cam.x_dp;
 	crd2.y += data->cam.y_dp;
+//	crd2.z += data->cam.z_dp;
+
 	crd1.x *= data->cam.zoom;
 	crd1.y *= data->cam.zoom;
 	crd1.z *= data->cam.zoom_z;
+	crd1.z += data->cam.z_dp;
 	crd2.x *= data->cam.zoom;
 	crd2.y *= data->cam.zoom;
 	crd2.z *= data->cam.zoom_z;
+	crd2.z += data->cam.z_dp;
+
+//	crd1.x += data->cam.x_dp;
+//	crd1.y += data->cam.y_dp;
+//	crd1.z += data->cam.z_dp;
+//	crd2.x += data->cam.x_dp;
+//	crd2.y += data->cam.y_dp;
+//	crd2.z += data->cam.z_dp;
+
+//	crd2.z += data->cam.z_dp;
+//	crd1.x += data->cam.x_dp;
+//	crd1.y += data->cam.y_dp;
+//	crd2.x += data->cam.x_dp;
+//	crd2.y += data->cam.y_dp;
 	rot_x(&crd1.y, &crd1.z, data);
 	rot_x(&crd2.y, &crd2.z, data);
 	rot_y(&crd1.x, &crd1.z, data);
@@ -111,8 +129,8 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 	r = crd1.clr >> 16 & 0xFF;
 	g = crd1.clr >> 8 & 0xFF;
 	b = crd1.clr & 0xFF;
-//	if (dx != 0 && dy != 0)
-//	{
+	if (dx != 0 || dy != 0)
+	{
 		dx = dx / steps;
 		dy = dy / steps;
 //		color = (crd1.z > crd2.z) ? crd1.clr : crd2.clr;
@@ -200,10 +218,10 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 //			}
 //		}
 //	}
-//	}
-//	else
+	}
+	else
 //		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
-//		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((r << 16) | (g << 8) | b);
+		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = ((r << 16) | (g << 8) | b);
 }
 
 
