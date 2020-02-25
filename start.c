@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 18:04:08 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/23 17:22:09 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/25 15:38:03 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,11 @@ t_mlx	*start(int argc, char **argv)
 	data->cam.angle_x = 0.0f;
 	data->cam.angle_y = 0.0f;
 	data->cam.angle_z = 0.0f;
+	data->cam.sin_x = 0.0f;
+	data->cam.cos_x = 1.0f;
+	data->cam.sin_y = 0.0f;
+	data->cam.cos_y = 1.0f;
+	data->cam.sin_z = 0.0f;
+	data->cam.cos_z = 1.0f;
 	return (data);
 }

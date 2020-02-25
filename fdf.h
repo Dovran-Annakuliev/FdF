@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/23 17:22:09 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/25 15:22:32 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,19 @@
 #include "key.h"
 #include "sources/minilibx_macos/mlx.h"
 
-# define W 1920
-# define H 1080
-# define IW 1920
-# define IH 1080
+# define W 2560
+# define H 1600
+# define IW 2560
+# define IH 1600
+
+/*
+** -------------------LINUX----------------------
+*/
+
+//# define W 1920
+//# define H 1080
+//# define IW 1920
+//# define IH 1080
 
 typedef struct	s_point
 {
@@ -63,6 +72,12 @@ typedef struct	s_cam
 	double 		angle_x;
 	double 		angle_y;
 	double 		angle_z;
+	double 		sin_x;
+	double 		cos_x;
+	double 		sin_y;
+	double 		cos_y;
+	double 		sin_z;
+	double 		cos_z;
 }				t_cam;
 
 
@@ -81,6 +96,8 @@ int				main(int argc, char **argv);
 void			read_map(int argc, char **argv, int fd, t_mlx *data);
 void			errors(int err);
 int				deal_key(int key, t_mlx *data);
+//int				mouse_key(int key, int x, int y, t_mlx *data);
+//int				mouse_move(int x, int y, t_mlx *data);
 int				ft_atoi_base(const char *str);
 void			shaolin_wu(t_mlx *data, t_point crd1, t_point crd2);
 void			draw_image(t_mlx *data);

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/24 21:04:52 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/25 15:17:05 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ static void		rot_x(t_mlx *data, int key)
 		data->cam.angle_x += 0.0174533;
 	if (key == angl_x_m)
 		data->cam.angle_x -= 0.0174533;
+	if ((data->cam.angle_x / 360) > 6.283188)
+		data->cam.angle_x -= 360;
+	if ((data->cam.angle_x / 360) < -6.283188)
+		data->cam.angle_x += 360;
+	data->cam.sin_x = sin(data->cam.angle_x);
+	data->cam.cos_x = cos(data->cam.angle_x);
 	draw_image(data);
 }
 
@@ -36,6 +42,12 @@ static void		rot_y(t_mlx *data, int key)
 		data->cam.angle_y += 0.0174533;
 	if (key == angl_y_m)
 		data->cam.angle_y -= 0.0174533;
+	if ((data->cam.angle_y / 360) > 6.283188)
+		data->cam.angle_y -= 360;
+	if ((data->cam.angle_y / 360) < -6.283188)
+		data->cam.angle_y += 360;
+	data->cam.sin_y = sin(data->cam.angle_y);
+	data->cam.cos_y = cos(data->cam.angle_y);
 	draw_image(data);
 }
 
@@ -45,6 +57,12 @@ static void		rot_z(t_mlx *data, int key)
 		data->cam.angle_z += 0.0174533;
 	if (key == angl_z_m)
 		data->cam.angle_z -= 0.0174533;
+	if ((data->cam.angle_z / 360) > 6.283188)
+		data->cam.angle_z -= 360;
+	if ((data->cam.angle_z / 360) < -6.283188)
+		data->cam.angle_z += 360;
+	data->cam.sin_z = sin(data->cam.angle_z);
+	data->cam.cos_z = cos(data->cam.angle_z);
 	draw_image(data);
 }
 
@@ -84,6 +102,8 @@ static void		zoom(t_mlx *data, int key)
 
 static void 	close_fdf(t_mlx *data)
 {
+	mlx_clear_window(data->mlx, data->window);
+	mlx_destroy_image(data->mlx, data->img.img_data);
 	(void)data;
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:13:18 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/18 17:06:16 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/25 15:06:54 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		main(int argc, char **argv)
 //		print_point(data->arr[k]);
 	draw_image(data);
 	mlx_hook(data->window, 2, 1l<<0, deal_key, data);
+//	mlx_hook(data->window, 4, 1l<<0, mouse_key, data);
+//	mlx_hook(data->window, 6, 1l<<0, mouse_move, data);
 	mlx_loop(data->mlx);
 	return (0);
 }
