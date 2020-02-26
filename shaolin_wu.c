@@ -77,21 +77,21 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 //	int color;
 
 
-	crd1.x += data->cam.x_dp;
-	crd1.y += data->cam.y_dp;
+//	crd1.x += data->cam.x_dp;
+//	crd1.y += data->cam.y_dp;
 //	crd1.z += data->cam.z_dp;
-	crd2.x += data->cam.x_dp;
-	crd2.y += data->cam.y_dp;
+//	crd2.x += data->cam.x_dp;
+//	crd2.y += data->cam.y_dp;
 //	crd2.z += data->cam.z_dp;
 
 	crd1.x *= data->cam.zoom;
 	crd1.y *= data->cam.zoom;
 	crd1.z *= data->cam.zoom_z;
-	crd1.z += data->cam.z_dp;
+//	crd1.z += data->cam.z_dp;
 	crd2.x *= data->cam.zoom;
 	crd2.y *= data->cam.zoom;
 	crd2.z *= data->cam.zoom_z;
-	crd2.z += data->cam.z_dp;
+//	crd2.z += data->cam.z_dp;
 
 //	crd1.x += data->cam.x_dp;
 //	crd1.y += data->cam.y_dp;
@@ -111,6 +111,15 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 	rot_y(&crd2.x, &crd2.z, data);
 	rot_z(&crd1.x, &crd1.y, data);
 	rot_z(&crd2.x, &crd2.y, data);
+
+	crd1.x += data->cam.x_dp;
+	crd1.y += data->cam.y_dp;
+	crd1.z += data->cam.z_dp;
+	crd2.x += data->cam.x_dp;
+	crd2.y += data->cam.y_dp;
+	crd2.z += data->cam.z_dp;
+
+
 	if (data->map.prj == 1)
 	{
 		iso(&crd1.x, &crd1.y, crd1.z);
