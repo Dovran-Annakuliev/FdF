@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:48:57 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 17:26:36 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/26 16:27:53 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ static void	read_size(int fd, char *line, t_mlx *data)
 //		free(line);
 //		write(1, "d\n", 2);
 		data->map.heg++;
+//		ft_strdel(&line);
+		free(line);
 	}
 }
 
@@ -136,7 +138,6 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 //	write(1, "2\n", 2);
 	read_size(fd, line, data);
 //	write(1, "3\n", 2);
-	ft_strdel(&line);
 	data->arr = (t_point *)malloc(sizeof(t_point)
 			* data->map.heg * data->map.len);
 	close(fd);
@@ -147,9 +148,11 @@ void		read_map(int argc, char **argv, int fd, t_mlx *data)
 	{
 		split(data, line, ++i);
 		ft_strdel(&line);
+//		free(line);
 	}
 //	write(1, "5\n", 2);
-	ft_strdel(&line);
+//	ft_strdel(&line);
+	free(line);
 	close(fd);
 }
 

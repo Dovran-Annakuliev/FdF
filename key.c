@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/25 21:01:12 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/26 12:59:20 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static void		shift_x(t_mlx *data, int key)
 {
 	if (key == x_dp_p)
-		data->cam.x_dp++;
+		data->cam.x_dp += 10;
 	if (key == x_dp_m)
-		data->cam.x_dp--;
+		data->cam.x_dp -= 10;
 	draw_image(data);
 }
 
 static void		shift_y(t_mlx *data, int key)
 {
 	if (key == y_dp_p)
-		data->cam.y_dp++;
+		data->cam.y_dp += 10;
 	if (key == y_dp_m)
-		data->cam.y_dp--;
+		data->cam.y_dp -= 10;
 	draw_image(data);
 }
 
@@ -146,7 +146,7 @@ static void 	close_fdf(t_mlx *data)
 
 int 	deal_key(int key, t_mlx *data)
 {
-	printf("key = %d\n", key);
+//	printf("key = %d\n", key);
 	if (key == x_dp_p || key == x_dp_m)
 		shift_x(data, key);
 	if (key == y_dp_p || key == y_dp_m)

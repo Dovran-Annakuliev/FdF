@@ -12,25 +12,47 @@
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
-{
-	int		i;
-	int		len;
-	char	*des;
+//char	*ft_strdup(const char *src)
+//{
+//	int		i;
+//	int		len;
+//	char	*des;
+//
+//	len = ft_strlen(src);
+//	des = (char*)malloc(sizeof(char) * len + 1);
+//	i = 0;
+//	if (des)
+//	{
+//		while (src[i] != '\0')
+//		{
+//			des[i] = src[i];
+//			i++;
+//		}
+//		des[i] = '\0';
+//		return (des);
+//	}
+//	else
+//		return (NULL);
+//}
 
-	len = ft_strlen(src);
-	des = (char*)malloc(sizeof(char) * len + 1);
+char	*ft_strdup(const char *s1)
+{
+	size_t	i;
+	size_t	size;
+	char	*dup;
+
 	i = 0;
-	if (des)
+	size = ft_strlen(s1);
+	if ((dup = (char *)malloc(sizeof(char) * (size + 1))))
 	{
-		while (src[i] != '\0')
+		while (i < size)
 		{
-			des[i] = src[i];
+			dup[i] = s1[i];
 			i++;
 		}
-		des[i] = '\0';
-		return (des);
 	}
 	else
 		return (NULL);
+	dup[size] = '\0';
+	return (dup);
 }

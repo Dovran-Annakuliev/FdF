@@ -167,6 +167,8 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 			g += d_g;
 			b += d_b;
 		}
+
+
 //	if (dx > dy)
 //	{
 //		while ((int) (crd1.x - crd2.x) || (int) (crd1.y - crd2.y))
@@ -227,6 +229,8 @@ void	shaolin_wu(t_mlx *data, t_point crd1, t_point crd2)
 //			}
 //		}
 //	}
+
+
 	}
 	else
 //		data->img.img_data[(int)crd1.y * IW +(int)crd1.x] = color;
