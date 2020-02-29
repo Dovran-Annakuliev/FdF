@@ -6,13 +6,13 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 12:57:34 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/26 12:57:34 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/29 14:44:34 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    errors(int err)
+void	errors(int err)
 {
 	if (err == 1)
 	{
@@ -30,23 +30,3 @@ void    errors(int err)
 		exit(0);
 	}
 }
-
-//
-//int		ft_count_words(char const *s, char c)
-//{
-//	int	words;
-//
-//	words = 0;
-//	while (*s)
-//	{
-//		while (*s == c)
-//			s++;
-//		if (*s)
-//		{
-//			while (*s && *s != c)
-//				s++;
-//			words++;
-//		}
-//	}
-//	return (words);
-//}

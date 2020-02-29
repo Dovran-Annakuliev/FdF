@@ -6,69 +6,33 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 14:20:07 by rfork             #+#    #+#             */
-/*   Updated: 2020/01/25 11:12:40 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/29 18:53:33 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_strlen1(char const *s1, char const *s2)
-{
-	int i;
-	int j;
-	int len;
-
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[j] != '\0')
-		j++;
-	len = i + j - 1;
-	return (len);
-}
-
-char			*ft_while1(char const *s1, char const *s2, char *arr)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		arr[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		arr[i + j] = s2[j];
-		j++;
-	}
-	arr[i + j] = '\0';
-	return (arr);
-}
-
-char			*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*arr;
 
-	if (!s2)
-		return ((char *)s1);
-	if (!s1)
-		return ((char *)s2);
-	if (s1[0] == '\0' && s2[0] == '\0')
+	if (s1 && s2)
+		arr = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	else if (s1)
 	{
-		arr = (char*)malloc(sizeof(char) * 1);
-		arr[0] = '\0';
+		arr = ft_strdup(s1);
 		return (arr);
 	}
-	arr = (char*)malloc(sizeof(char) * ft_strlen1(s1, s2));
-	if (arr)
+	else if (s2)
 	{
-		arr = ft_while1(s1, s2, arr);
+		arr = ft_strdup(s2);
 		return (arr);
 	}
-	else
-		return (NULL);
+	if (s1 && s2)
+	{
+		arr = ft_strcpy(arr, s1);
+		arr = ft_strcat(arr, s2);
+		return (arr);
+	}
+	return (NULL);
 }

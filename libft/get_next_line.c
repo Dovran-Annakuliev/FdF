@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 12:43:52 by rfork             #+#    #+#             */
-/*   Updated: 2019/10/28 16:39:18 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/29 18:32:34 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ static int	ft_save(char **line, char **s_buf)
 	return (1);
 }
 
+static int	errors(const int fd)
+{
+	if (fd < 0 || fd > OPEN_MAX || BUFF_SIZE == 0)
+		return (1);
+	return (0);
+}
+
 int			get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
@@ -40,7 +47,7 @@ int			get_next_line(const int fd, char **line)
 	int			ret;
 	char		*temp;
 
-	if (fd < 0 || fd > 10240 || !line || ((read(fd, buf, 0)) < 0))
+	if (errors(fd) || !line || ((read(fd, buf, 0)) < 0))
 		return (-1);
 	if (!s_buf[fd])
 		if (!(s_buf[fd] = ft_strnew(0)))
@@ -57,7 +64,7 @@ int			get_next_line(const int fd, char **line)
 		if ((ft_strchr(s_buf[fd], '\n')))
 			return (ft_save(line, &s_buf[fd]));
 	}
-	if (s_buf[fd] && (s_buf[fd][0]))
+	if (s_buf[fd] && s_buf[fd][0])
 		return (ft_save(line, &s_buf[fd]));
 	return (0);
 }
