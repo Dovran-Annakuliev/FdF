@@ -6,13 +6,13 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/29 23:25:17 by dovran           ###   ########.fr       */
+/*   Updated: 2020/02/29 23:27:03 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void 	def(t_mlx *data)
+static void		def(t_mlx *data)
 {
 	data->cam.zoom = 2.0f;
 	data->cam.zoom_z = 1.0f;
@@ -58,7 +58,7 @@ static void		zoom(t_mlx *data, int key)
 	draw_image(data);
 }
 
-static void 	close_fdf(t_mlx *data)
+static void		close_fdf(t_mlx *data)
 {
 	free(data->arr);
 	mlx_destroy_image(data->mlx, data->img.img_data);
@@ -67,7 +67,7 @@ static void 	close_fdf(t_mlx *data)
 	exit(0);
 }
 
-int 	deal_key(int key, t_mlx *data)
+int				deal_key(int key, t_mlx *data)
 {
 	if (key == X_DP_P || key == X_DP_M)
 		shift_x(data, key);
