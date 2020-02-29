@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:51:45 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/29 14:54:09 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/29 23:22:56 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	rotate_x(t_mlx *data, int key)
 {
-	if (key == angl_x_p)
+	if (key == ANGL_X_P)
 		data->cam.angle_x += 0.0174533;
-	if (key == angl_x_m)
+	if (key == ANGL_X_M)
 		data->cam.angle_x -= 0.0174533;
 	if ((data->cam.angle_x / 360) > 6.283188)
 		data->cam.angle_x -= 360;
@@ -29,9 +29,9 @@ void	rotate_x(t_mlx *data, int key)
 
 void	rotate_y(t_mlx *data, int key)
 {
-	if (key == angl_y_p)
+	if (key == ANGL_Y_P)
 		data->cam.angle_y += 0.0174533;
-	if (key == angl_y_m)
+	if (key == ANGL_Y_M)
 		data->cam.angle_y -= 0.0174533;
 	if ((data->cam.angle_y / 360) > 6.283188)
 		data->cam.angle_y -= 360;
@@ -44,9 +44,9 @@ void	rotate_y(t_mlx *data, int key)
 
 void	rotate_z(t_mlx *data, int key)
 {
-	if (key == angl_z_p)
+	if (key == ANGL_Z_P)
 		data->cam.angle_z += 0.0174533;
-	if (key == angl_z_m)
+	if (key == ANGL_Z_M)
 		data->cam.angle_z -= 0.0174533;
 	if ((data->cam.angle_z / 360) > 6.283188)
 		data->cam.angle_z -= 360;

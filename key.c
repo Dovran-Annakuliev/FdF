@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/29 19:46:39 by rfork            ###   ########.fr       */
+/*   Updated: 2020/02/29 23:25:17 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ static void 	def(t_mlx *data)
 
 static void		change_z(t_mlx *data, int key)
 {
-	if (key == z_p)
+	if (key == Z_P)
 		data->cam.zoom_z++;
-	if (key == z_m)
+	if (key == Z_M)
 		data->cam.zoom_z--;
 	draw_image(data);
 }
 
 static void		zoom(t_mlx *data, int key)
 {
-	if (key == zoom_p)
+	if (key == ZOOM_P)
 	{
 		if (data->cam.zoom < 5.0f)
 			data->cam.zoom = 5.0f;
 		else
 			data->cam.zoom += 5.0f;
 	}
-	if (key == zoom_m)
+	if (key == ZOOM_M)
 	{
 		if (data->cam.zoom >= 10.0f)
 			data->cam.zoom -= 5.0f;
@@ -69,27 +69,27 @@ static void 	close_fdf(t_mlx *data)
 
 int 	deal_key(int key, t_mlx *data)
 {
-	if (key == x_dp_p || key == x_dp_m)
+	if (key == X_DP_P || key == X_DP_M)
 		shift_x(data, key);
-	if (key == y_dp_p || key == y_dp_m)
+	if (key == Y_DP_P || key == Y_DP_M)
 		shift_y(data, key);
-	if ((key == z_dp_p || key == z_dp_m) && data->map.prj == 1)
+	if ((key == Z_DP_P || key == Z_DP_M) && data->map.prj == 1)
 		shift_z(data, key);
-	if (key == projection)
+	if (key == PROJECTION)
 		project(data);
-	if ((key == angl_x_p || key == angl_x_m) && data->map.prj == 1)
+	if ((key == ANGL_X_P || key == ANGL_X_M) && data->map.prj == 1)
 		rotate_x(data, key);
-	if ((key == angl_y_p || key == angl_y_m) && data->map.prj == 1)
+	if ((key == ANGL_Y_P || key == ANGL_Y_M) && data->map.prj == 1)
 		rotate_y(data, key);
-	if ((key == angl_z_p || key == angl_z_m) && data->map.prj == 1)
+	if ((key == ANGL_Z_P || key == ANGL_Z_M) && data->map.prj == 1)
 		rotate_z(data, key);
-	if (key == default)
+	if (key == DEFAULT)
 		def(data);
-	if ((key == z_m || key == z_p) && data->map.prj == 1)
+	if ((key == Z_M || key == Z_P) && data->map.prj == 1)
 		change_z(data, key);
-	if (key == zoom_m || key == zoom_p)
+	if (key == ZOOM_M || key == ZOOM_P)
 		zoom(data, key);
-	if (key == esc)
+	if (key == ESC)
 		close_fdf(data);
 	return (0);
 }
