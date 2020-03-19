@@ -23,27 +23,30 @@ static void	create_background(t_mlx *data)
 
 static void	put_string(t_mlx *data)
 {
-	mlx_string_put(data->mlx, data->window, 100, 50, 0xbebebe, "Exit - 'esc'");
+	mlx_put_image_to_window(data->mlx, data->window,
+		       	data->img.image, 0, 0);
+	mlx_string_put(data->mlx, data->window, 100, 50,
+		       	0xbebebe, "Exit - 'esc'");
 	mlx_string_put(data->mlx, data->window, 100, 75,
-			0xbebebe, "Default - 'clear'");
+		       	0xbebebe, "Default - 'num_0'");
 	mlx_string_put(data->mlx, data->window, 100, 100,
-			0xbebebe, "Projection - 'num_del'");
+		       	0xbebebe, "Projection - 'num_del'");
 	mlx_string_put(data->mlx, data->window, 100, 125,
-			0xbebebe, "Change Z - 'num_*', 'num_/'");
+		       	0xbebebe, "Change Z - 'num_*', 'num_/'");
 	mlx_string_put(data->mlx, data->window, 100, 150,
-			0xbebebe, "Change scale - 'num_+', 'num_-'");
+		       	0xbebebe, "Change scale - 'num_+', 'num_-'");
 	mlx_string_put(data->mlx, data->window, 100, 175,
-			0xbebebe, "Rotation_x - 'num_4', 'num_6'");
+		       	0xbebebe, "Rotation_x - 'num_4', 'num_6'");
 	mlx_string_put(data->mlx, data->window, 100, 200,
-			0xbebebe, "Rotation_y - 'num_8', 'num_5");
+		       	0xbebebe, "Rotation_y - 'num_8', 'num_5");
 	mlx_string_put(data->mlx, data->window, 100, 225,
-			0xbebebe, "Rotation_z - 'num_7', 'num_9'");
+		       	0xbebebe, "Rotation_z - 'num_7', 'num_9'");
 	mlx_string_put(data->mlx, data->window, 100, 250,
-			0xbebebe, "Move_x - 'left', 'right'");
+		       	0xbebebe, "Move_x - 'left', 'right'");
 	mlx_string_put(data->mlx, data->window, 100, 275,
-			0xbebebe, "Move_y - 'up', 'down'");
+		       	0xbebebe, "Move_y - 'up', 'down'");
 	mlx_string_put(data->mlx, data->window, 100, 300,
-			0xbebebe, "Move_z - 'num_0', 'num_1'");
+		       	0xbebebe, "Move_z - 'num_1', 'num_3'");
 }
 
 void		draw_image(t_mlx *data)

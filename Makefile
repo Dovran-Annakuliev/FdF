@@ -14,8 +14,26 @@ GCC = gcc -Wall -Wextra -Werror
 NAME = fdf
 SRCS = main.c start.c atoi_base.c draw_image.c errors.c key.c brez.c rot.c shift.c read_map.c shift_map.c
 OBJS = $(SRCS:.c=.o)
-HEAD = -c -I fdf.h
-LIB = -L libft -lft -L minilibx -lmlx -framework OpenGL -framework Appkit
+HEAD = -c -I fdf.h key.h
+
+ifeq ($(OS),Windows_NT)
+        detected_OS := Windows
+else
+        detected_OS := $(shell uname)
+endif
+ifeq ($(detected_OS),Linux)
+        #LIB += -L./libs/glad/ -lglad -ldl  -lGL -L./libs/glfw/src/ -lglfw3 \
+        -lXrandr -lXrender -lXi -lXfixes -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
+        LIBMAKE := minilibx
+        LIB :=  -L libft -lft -L minilibx -lmlx_Linux  -lXrandr -lXrender -lXi -lXfixes \
+        -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lm
+endif
+ifeq ($(detected_OS),Darwin)
+        #LIB = -L./libs/glad/ -lglad -L./libs/glfw/src/ -lglfw3      # Mac OS X
+        #LIBRARIES += -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+        LIBMAKE := minilibx_macos
+        LIB = -L libft -lft -L minilibx -lmlx -framework OpenGL -framework Appkit
+endif
 
 all: $(NAME)
 
