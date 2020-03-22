@@ -52,6 +52,9 @@ t_mlx		*start(int argc, char **argv)
 
 	if (!(data = (t_mlx *)malloc(sizeof(t_mlx))))
 		errors(0);
+	read_map(argc, argv, 0, data);
+        displace(data);
+        def_values(data);
 	if (!(data->mlx = mlx_init()))
 		errors(0);
 	if (!(data->window = mlx_new_window(data->mlx, W, H, "FdF")))
@@ -61,8 +64,5 @@ t_mlx		*start(int argc, char **argv)
 	if (!(data->img.img_data = (int *)mlx_get_data_addr(data->img.image,
 			&data->img.bbp, &data->img.sz_l, &data->img.end)))
 		errors(0);
-	read_map(argc, argv, 0, data);
-	displace(data);
-	def_values(data);
 	return (data);
 }
