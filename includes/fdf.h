@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 15:14:04 by rfork             #+#    #+#             */
-/*   Updated: 2020/02/29 20:56:58 by rfork            ###   ########.fr       */
+/*   Updated: 2020/05/25 18:29:36 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@
 # include <unistd.h>
 # include <math.h>
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "key.h"
-# include "sources/minilibx_macos/mlx.h"
+
+#ifdef __APPLE__
+#include "../minilibx/minilibx_macos/mlx.h"
+#else
+#include "../minilibx/minilibx/mlx.h"
+#endif
+
 
 # define W 1920
 # define H 1080

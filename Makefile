@@ -12,9 +12,20 @@
 
 GCC = gcc -Wall -Wextra -Werror
 NAME = fdf
-SRCS = main.c start.c atoi_base.c draw_image.c errors.c key.c brez.c rot.c shift.c read_map.c shift_map.c
+SRCS = sources/main.c \
+       sources/start.c \
+       sources/atoi_base.c \
+       sources/draw_image.c \
+       sources/errors.c \
+       sources/key.c \
+       sources/brez.c \
+       sources/rot.c \
+       sources/shift.c \
+       sources/read_map.c \
+       sources/shift_map.c
 OBJS = $(SRCS:.c=.o)
-HEAD = -c -I fdf.h key.h
+HEAD = -c -I includes/fdf.h \
+	includes/key.h
 
 ifeq ($(OS),Windows_NT)
         detected_OS := Windows
@@ -24,14 +35,14 @@ endif
 ifeq ($(detected_OS),Linux)
         #LIB += -L./libs/glad/ -lglad -ldl  -lGL -L./libs/glfw/src/ -lglfw3 \
         -lXrandr -lXrender -lXi -lXfixes -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
-        LIBMAKE := minilibx
+        LIBMAKE := minilibx/minilibx
         LIB :=  -L libft -lft -L minilibx -lmlx_Linux  -lXrandr -lXrender -lXi -lXfixes \
         -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lm
 endif
 ifeq ($(detected_OS),Darwin)
         #LIB = -L./libs/glad/ -lglad -L./libs/glfw/src/ -lglfw3      # Mac OS X
         #LIBRARIES += -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
-        LIBMAKE := minilibx_macos
+        LIBMAKE := minilibx/minilibx_macos
         LIB = -L libft -lft -L minilibx -lmlx -framework OpenGL -framework Appkit
 endif
 
@@ -42,7 +53,7 @@ all: $(NAME)
 
 lib:
 		make -C libft
-		make -C minilibx
+		make -C minilibx/minilibx
 
 $(NAME): $(OBJS) lib
 		$(GCC) $(OBJS) $(LIB) -o $(NAME)
@@ -54,6 +65,6 @@ clean:
 fclean: clean
 		rm -f $(NAME)
 		make -C libft fclean
-		make -C minilibx clean
+		make -C minilibx/minilibx clean
 
 re: fclean all
