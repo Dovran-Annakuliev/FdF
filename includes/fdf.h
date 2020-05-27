@@ -23,7 +23,7 @@
 
 # include "../libft/libft.h"
 # include "key.h"
-# include "../minilibx/mlx.h"
+# include "../minilibx/minilibx/mlx.h"
 
 # define W 1920
 # define H 1080
