@@ -1,6 +1,9 @@
 # FdF
 Building a map in 3D using "wireframe" graphics (“fils de fer” in french, hence the name of the project).
 
+Download:
+1) Clone the repository with the "--recursive" flag.
+
 
 Install (only for Linux or macOS):
 1) Run the "make" command to compile the program.
