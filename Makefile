@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rfork <rfork@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/01/05 17:09:20 by rfork             #+#    #+#              #
-#    Updated: 2020/05/26 16:28:18 by dovran           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 GCC = gcc -Wall -Wextra -Werror
 NAME = fdf
 SRCS = sources/main.c sources/start.c sources/atoi_base.c sources/draw_image.c sources/errors.c sources/key.c sources/brez.c sources/rot.c sources/shift.c sources/read_map.c sources/shift_map.c
