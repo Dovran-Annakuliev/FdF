@@ -7,8 +7,4 @@ Install:
 Run:
   run the "./fdf" command, which takes the path to the map file as an argument (examples of mapss are in the "test_maps" folder)
 
-Examples:
-![alt text](screenshots/42.png)​
-![alt text](screenshots/t1.png)​
-![alt text](screenshots/mars.png)​
-![alt text](screenshots/julia.png)​
+
