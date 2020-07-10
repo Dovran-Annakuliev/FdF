@@ -10,8 +10,7 @@ Install (only for Linux or macOS):
 
   
 Run:
-
-Run the "./fdf" command, which takes the path to the map file as an argument (examples of maps are in the "test_maps" folder).
+1) Run the "./fdf" command, which takes the path to the map file as an argument (examples of maps are in the "test_maps" folder).
 
 
 Examples:
