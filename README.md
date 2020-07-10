@@ -9,3 +9,6 @@ Run:
 
 Examples:
 ![alt text](screenshots/42.png)​
+![alt text](screenshots/t1.png)​
+![alt text](screenshots/mars.png)​
+![alt text](screenshots/julia.png)​
