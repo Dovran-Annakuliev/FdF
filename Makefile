@@ -30,7 +30,7 @@ sources%.o: %.c
 
 lib:
 		make -C libft
-		make -C minilibx/minilibx
+		make -C minilibx/minilibx_macos
 
 $(NAME): $(OBJS) lib
 		$(GCC) $(OBJS) $(LIB) -o $(NAME)
